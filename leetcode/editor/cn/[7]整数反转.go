@@ -18,10 +18,29 @@
 Related Topics 数学
 👍 2975 👎 0*/
 package cn
-
+import (
+	"math"
+	"strconv"
+)
 //leetcode submit region begin(Prohibit modification and deletion)
-func reverse(x int) int {
-
+func reverse(x int) (rev int) {
+	xStr := strconv.Itoa(x)
+	revStr := ""
+	if x < 0 {
+		revStr = "-"
+		xStr = strconv.Itoa(int(math.Abs(float64(x))))
+	}
+	for i := len(xStr) - 1; i >= 0; i-- {
+		revStr += string(xStr[i])
+	}
+	rev, err := strconv.Atoi(revStr)
+	if err != nil {
+		println(err)
+	}
+	if rev < math.MinInt32 || rev > math.MaxInt32 {
+		return 0
+	}
+	return rev
 
 }
 //leetcode submit region end(Prohibit modification and deletion)
