@@ -28,7 +28,7 @@ func reverse(x int) (rev int) {
 	revStr := ""
 	if x < 0 {
 		revStr = "-"
-		xStr = strconv.Itoa(int(math.Abs(float64(x))))
+		xStr = strconv.Itoa(-x)
 	}
 	for i := len(xStr) - 1; i >= 0; i-- {
 		revStr += string(xStr[i])
